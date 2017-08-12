@@ -1,0 +1,88 @@
+/* CSS Document */
+.wrapper{
+	width:90%;
+	margin:0 auto;
+	display: none;
+}
+
+.clickable{
+    cursor: pointer;   
+}
+
+.panel-heading span {
+	margin-top: -20px;
+	font-size: 15px;
+}
+
+.panel-heading p{
+	margin:0;	
+}
+
+#profilePanel{
+	display:none;
+}
+
+#viewPanel{
+	display:none;
+}
+
+.dragContainer {
+  width: 100%;
+  min-height: 500px;
+  margin:0 auto;
+  border: 1px solid #cdcdcd;
+	padding:0.25em;
+}
+
+.draggable{
+	border: 1px solid #cdcdcd;
+	width: 200px; 
+	height: 200px;
+}
+
+.no-close .ui-dialog-titlebar-close {display: none }
+
+.viewHeading{
+	width:100%;
+	height:auto;
+	background-color:#cbe4d6;
+	text-align: center;
+}
+
+.viewContent{
+	padding:0.25em;
+}
+
+.viewFooter{
+	text-align:right;
+	font-size: 60%;
+}
+
+.viewFooter p{
+	margin:0;
+	padding:0.2em;
+}
+
+.ui-dialog{
+	border:1px solid black;
+	background-color:white;
+	box-shadow: 0 0 2px #888888;
+	padding:0.5em;
+	border-radius: 1%;
+}
+
+#projectAlert{
+	display:none;
+}
+
+#profileAlert{
+	display: none;
+}
+
+#viewAlert{
+	display: none;
+}
+
+#viewAttributeAlert{
+	display:none;
+}
