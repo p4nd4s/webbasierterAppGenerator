@@ -5,6 +5,9 @@
 		<title>Bachelorarbeit 2</title>
 		<link rel="stylesheet" type="text/css" href="dist/boostrap/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/template.css">
+			<!-- Create a simple CodeMirror instance -->
+	<link rel="stylesheet" href="dist/codemirror-5.28.0/lib/codemirror.css">
+	
 	</head>
 
  	<body>
@@ -120,7 +123,7 @@
  	<!-- Dragable Bereich -->
  	
  	<div class="wrapper">
-		<div class="row">
+		<div class="row" id="dragArea">
 			<div class="col-md-12 projectSettings">
 				<h2 id="projectNameSet"></h2>
 				<p id="projectNamespaceSet">
@@ -199,7 +202,7 @@
 		
 		<!-- XML Ausgabe -->
 		
-		<div class="row">
+		<div class="row" id="liveView">
 			<div class="col-md-12">
 				<h3>XML Output</h3>
 				<hr>
@@ -223,6 +226,8 @@
 	</div><!-- /.container -->
  
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="dist/codemirror-5.28.0/lib/codemirror.js"></script>
+	<script src="dist/codemirror-5.28.0/mode/xml/xml.js"></script>
 	<script src="dist/jQuery/jquery.js"></script>
 	<script src="dist/jQuery/jquery-ui.js"></script>
 	<script src="dist/boostrap/js/bootstrap.min.js"></script>
@@ -240,10 +245,9 @@
 				$this.removeClass('panel-collapsed');
 				$this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
 			}
-		})
-		
-	</script>
+		});
 
- 
+	</script>
+	
 </body>
 </html>

@@ -2,7 +2,14 @@
 .wrapper{
 	width:90%;
 	margin:0 auto;
-	display: none;
+}
+
+#dragArea{
+	display:none;
+}
+
+#generateXML{
+	display:none;
 }
 
 .clickable{

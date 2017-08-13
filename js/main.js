@@ -16,8 +16,9 @@ $( "#addProject" ).click(function(){
 		$('#projectAlert').css('display', 'none');
 		addProject($( "#projectName").val(),$( "#projectNamespace").val());
 		$( "#profilePanel" ).css("display","block");
+		$( "#generateXML" ).css("display","block");
 		//$( "#viewPanel" ).css("display","block");
-		//$( ".wrapper" ).css("display","block");
+		$( "#dragArea" ).css("display","block");
 		
 	}else{
 		$('#projectAlert').css('display', 'block');
@@ -46,7 +47,7 @@ $( "#addProfile" ).click(function(){
 		addProfile($( "#profileName").val());
 		
 		$( "#viewPanel" ).css("display","block");
-		$( ".wrapper" ).css("display","block");
+		$( ".dragArea" ).css("display","block");
 		
 	}else{
 		$('#profileAlert').css('display', 'block');
@@ -439,6 +440,8 @@ $( "#generateXML" ).click(function() {
 });	
 		
 function generateXMLFromArray(){
+	//var editor;
+	
 	xmlString = "<";
 	xmlString += "?xml version='1.0' encoding='UTF-8'?>\n\n";
 	xmlString += "<p:app appname='" + project.name + "' package='" + project.namespace + "'\n";
@@ -467,10 +470,26 @@ function generateXMLFromArray(){
 	xmlString += "</p:app>";
 		
 	console.log(xmlString);
-		
-		
+	
 	$("#xmlPrepare").text(xmlString);
-		
+	
+	//var code = $("#xmlPrepare")[0];
+	
+	//console.log(code);
+	
+	//editor = CodeMirror.fromTextArea(code, {
+	//	lineNumbers : false
+	//});
+	
+	//editor.clearHistory();
+	$(".cm-s-default").remove();
+	var readOnlyCodeMirror = CodeMirror.fromTextArea(document.getElementById('xmlPrepare'), {
+        mode: "xml",
+        theme: "default",
+        lineNumbers: true,
+        readOnly: true
+    });  
+				
 }
 
 
