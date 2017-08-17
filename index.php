@@ -126,7 +126,7 @@
 		<div class="row" id="dragArea">
 			<div class="col-md-12 projectSettings">
 				<h2 id="projectNameSet"></h2>
-				<p id="projectNamespaceSet">
+				<p id="projectNamespaceSet"></p>
 			</div>
 			<div class="col-md-12">
 				<div class="dragContainer">
@@ -140,7 +140,7 @@
 	<!-- Screen Dialog -->
 	
 		<div id="dialog" title="Attribut hinzufügen">
-			<h3>AKtueller Screen: <strong id="acutalView"></strong></h3>
+			<h3>Aktueller Screen: <strong id="acutalView"></strong></h3>
 			<p>Wählen Sie Ihr gewünschtes Attribut und füllen die Felder aus, um es dem Screen hinzuzufügen.</p>
 			<div class="alert alert-danger" role="alert" id="viewAttributeAlert">Bitte füllen Sie alle Felder aus!</div>
 			<select id="attributeSelect" name="Attribute">
@@ -206,10 +206,10 @@
 			<div class="col-md-12">
 				<h3>XML Output</h3>
 				<hr>
-				<p class="lead">Dieser Output wird durch das hinzufügen eines Projektes und den damit verbundenen Screen erweitert. Zudem werden Attribute zu den entsprechenden Screens angezeigt.</p>
+				<p class="lead">Dieser Output wird durch das Hinzufügen eines Projektes und den damit verbundenen Screen erweitert. Zudem werden Attribute zu den entsprechenden Screens angezeigt.</p>
 			</div>
 			<div class="col-md-12">
-				<textarea rows="20" style="width:100%;" id="xmlPrepare">
+				<textarea rows="40" style="width:100%;" id="xmlPrepare">
 
 				</textarea>
 			</div>

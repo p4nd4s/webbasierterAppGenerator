@@ -17,9 +17,6 @@ $( "#addProject" ).click(function(){
 		addProject($( "#projectName").val(),$( "#projectNamespace").val());
 		$( "#profilePanel" ).css("display","block");
 		$( "#generateXML" ).css("display","block");
-		//$( "#viewPanel" ).css("display","block");
-		$( "#dragArea" ).css("display","block");
-		
 	}else{
 		$('#projectAlert').css('display', 'block');
 	}
@@ -47,7 +44,7 @@ $( "#addProfile" ).click(function(){
 		addProfile($( "#profileName").val());
 		
 		$( "#viewPanel" ).css("display","block");
-		$( ".dragArea" ).css("display","block");
+		$( "#dragArea" ).css("display","block");
 		
 	}else{
 		$('#profileAlert').css('display', 'block');
@@ -472,16 +469,7 @@ function generateXMLFromArray(){
 	console.log(xmlString);
 	
 	$("#xmlPrepare").text(xmlString);
-	
-	//var code = $("#xmlPrepare")[0];
-	
-	//console.log(code);
-	
-	//editor = CodeMirror.fromTextArea(code, {
-	//	lineNumbers : false
-	//});
-	
-	//editor.clearHistory();
+
 	$(".cm-s-default").remove();
 	var readOnlyCodeMirror = CodeMirror.fromTextArea(document.getElementById('xmlPrepare'), {
         mode: "xml",
@@ -491,10 +479,6 @@ function generateXMLFromArray(){
     });  
 				
 }
-
-
-// zum auslesen des TYPES 
-// console.log(views[0].attributes[0].constructor.name);
 		
 function sendXMLData(){
 		
