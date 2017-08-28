@@ -21,17 +21,17 @@ Das gesammte Projekt befindet sich auf GitHub unter folgendem Link:
 
 * `index.php` 	- die Hauptseite für Interaktionen
 * `js`			 	- die Logik
-* `css` 		- Template
-* `dist` 		- beinhaltet die verwendeten Bibliotheken
+* * `css` 		- Template
+* * `dist` 		- beinhaltet die verwendeten Bibliotheken
 
 
 ### Installation
 
 Klonen oder downloaden Sie das Projekt und verwenden Sie einen eigenen Server oder auch eine lokale Entwicklungsumgebung wie XAMPP. Als Beispiel wird hier die Installation mittels XAMPP erläutert. Dabei wird der ORdner in den HTDOCS Ordner von XAMPP verschoben und folgenden Dateien erweiterte Rechte vergeben:
 
-`xmlwriter.php` 	- chmod 755 xmlwriter.php
+`xmlwriter.php` +xwr
 
-`output`			- chmod -R 777 output/
+`output/` -R 777
 
 
 ## Kontakt
