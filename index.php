@@ -219,7 +219,8 @@
 		
 		<br>
 		<br>
-		<button type="button" class="btn btn-primary" id="generateXML">Generate and Download XML</button>
+		<button type="button" class="btn btn-primary" id="generateXML">GenerateXML</button>
+		<a class="btn btn-primary" id="downloadXML" href="#">Download XML</a>
 		<br>
 		<br>
 
