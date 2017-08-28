@@ -25,7 +25,6 @@ $( "#addProject" ).click(function(){
 function addProject(projectName, projectNamespace){
 	project = new Project(projectName,projectNamespace);
 	generateXMLFromArray();
-	console.log(project);
 }
 
 /* ********************************************************************************** */
@@ -57,7 +56,6 @@ function addProfile(profileName){
 	$( "#profileList" ).append("<li>" + profileName + "</li>");
 	generateXMLFromArray();
 	$( "#profileName").val('');
-	console.log(profiles);
 }
 
 /* ********************************************************************************** */
@@ -91,9 +89,6 @@ function addView(viewName){
 	var singleView = new View(viewCounter,viewName);
 	
 	views.push(singleView);
-		
-	console.log(views);
-	console.log("CLICKED ADD VIEW");
 
 	$( ".dragContainer" ).append( "<div id='" + viewName + "' class='draggable'><div class='viewHeading'><strong>" + viewName + "</strong><button  type='button' id='" + viewName + "' onClick=removeView(\"" + viewName + "\")>x</button></div><div  class='viewContent'><div  class='viewAttributes'><button type='button' class='opener' id='" + viewName + "'  onClick=openAttributeDialog(\"" + viewName + "\")>+</button></div></div><div  class='viewFooter'><p class='text-muted'> Viewnr:" + viewCounter + "</p></div></div>" );
 		
@@ -109,9 +104,6 @@ function addView(viewName){
 
 				  var x = thisPos.left - parentPos.left;
 				  var y = thisPos.top - parentPos.top;
-
-				  //console.log(x + ", " + y);
-					 
 			  },	  
 			  stop: function(event, ui){
 			      var $this = $(this);
@@ -121,7 +113,6 @@ function addView(viewName){
 
 				  var x = thisPos.left - parentPos.left;
 				  var y = thisPos.top - parentPos.top;
-				  console.log("Position x => " + x + " && Position y => " + y);
 				  var viewIndex = getViewID(id)-1;
 				  views[viewIndex].cordX = x;
 				  views[viewIndex].cordY = y;
@@ -149,9 +140,7 @@ function getViewArrayIndex(viewName){
 
 function removeView(viewName){
 	$( "#" + viewName ).remove();
-	console.log(views);
 	views.splice(getViewArrayIndex(viewName));
-	console.log(views);
 	generateXMLFromArray();
 }
 
@@ -201,11 +190,7 @@ var attributes = [];
 var attribute;
  
 function openAttributeDialog(viewName){
-	console.log("ATTRIBUTE ADD BUTTON CLICKED");
 	resetAttributeInput();
-	//$( "#viewNameHelper" ).html(viewName);
-    //$( "#dialog" ).data('viewName', viewName).dialog( "open" );
-	//var actualView = $("#dialog").data('param_1')
 	$( "#dialog" ).dialog( "open" );
 	$("#acutalView").html(viewName);
 	
@@ -216,7 +201,6 @@ $("#attributeSelect").change(function() {
 	$("#attributeValuesForm").remove();
 	attribute = $("#attributeSelect").val();
 	setAttributeForm($( "#viewName").val());
-	console.log("Gewählt:" + attribute);
 });
 
 function addAttribute(viewName){
@@ -230,18 +214,12 @@ function addAttribute(viewName){
 	
 	attribute = $("#attributeSelect").val();
 	
-	console.log("Button CLICKED ADD ATTRIBUTE");
-	console.log(viewName);
-	
 	if(attribute == "action"){
 	
 		if(functionAttribute != '' && nameAttribute != '' && descriptionAttribute != ''){
 			$('#viewAttributeAlert').css('display', 'none');
 			attributes.push(new Action(functionAttribute, nameAttribute, descriptionAttribute, viewName));
-			//$( "#"+ viewName ).append("<p>F: " + functionAttribute + "</p>");
 			$( "#"+ viewName ).append("<p><strong>A</strong>: " + nameAttribute + "</p>");
-			//$( "#"+ viewName ).append("<p>D: " + descriptionAttribute + "</p>");
-			console.log(attributes);
 			
 			views[getViewArrayIndex(viewName)].attributes.push(new Action(functionAttribute, nameAttribute, descriptionAttribute, viewName));
 			
@@ -258,8 +236,6 @@ function addAttribute(viewName){
 			$('#viewAttributeAlert').css('display', 'none');
 			attributes.push(new Input(nameAttribute, descriptionAttribute, viewName));
 			$( "#"+ viewName ).append("<p><strong>I</strong>: " + nameAttribute + "</p>");
-			//$( "#"+ viewName ).append("<p>D: " + descriptionAttribute + "</p>");
-			console.log(attributes);
 			
 			views[getViewArrayIndex(viewName)].attributes.push(new Input(nameAttribute, descriptionAttribute, viewName));
 			
@@ -276,9 +252,6 @@ function addAttribute(viewName){
 			$('#viewAttributeAlert').css('display', 'none');
 			attributes.push(new Output(nameAttribute, descriptionAttribute, typeAttribute, viewName));
 			$( "#"+ viewName ).append("<p><strong>O</strong>: " + nameAttribute + "</p>");
-			//$( "#"+ viewName ).append("<p>D: " + descriptionAttribute + "</p>");
-			//$( "#"+ viewName ).append("<p>D: " + typeAttribute + "</p>");
-			console.log(attributes);
 			
 			views[getViewArrayIndex(viewName)].attributes.push(new Output(nameAttribute, descriptionAttribute, typeAttribute, viewName));
 			
@@ -290,15 +263,10 @@ function addAttribute(viewName){
 	}
 	
 	if(attribute == "transition"){
-		console.log(nameAttribute + " -> " + descriptionAttribute + " -> " + targetAttribute);
 		if( nameAttribute != '' && descriptionAttribute != '' && targetAttribute != null){
 			$('#viewAttributeAlert').css('display', 'none');
 			attributes.push(new Transition(nameAttribute, descriptionAttribute, targetAttribute, viewName));
-			//$( "#"+ viewName ).append("<p>N: " + nameAttribute + "</p>");
-			//$( "#"+ viewName ).append("<p>D: " + descriptionAttribute + "</p>");
-			//$( "#"+ viewName ).append("<p>D: " + targetAttribute + "</p>");
 			$( "#"+ viewName ).append("<p><strong>T</strong> : ( " + viewName + " / " + targetAttribute + " )</p>");
-			console.log(attributes);
 			
 			views[getViewArrayIndex(viewName)].attributes.push(new Transition(nameAttribute, descriptionAttribute, targetAttribute, viewName));
 			
@@ -368,21 +336,10 @@ function setAttributeForm(viewName){
 			$("#typeAttributeInput").css("display", "none");
 			$("#targetAttributeInput").css("display", "block");
 			console.log(views);
-			
-			console.log(checkIfExists);
 			for(var i = 0 ; i < views.length; i++){
-				
-				var checkIfExists = false;	
-				
-				if(viewName == views[i].name){
-					checkIfExists = true;
-				}
-				
-				if(!checkIfExists){
-					console.log( "abc 123 ");
-					if($("option:contains('" + views[i].name + "')", "#targetAttribute").length<1){
-						$("#targetAttribute").append(" <option value='" + views[i].name + "'>" + views[i].name + "</option>");
-					}
+			
+				if($("#targetAttribute option[value='" + views[i].name + "']").length < 1){
+					$("#targetAttribute").append(" <option value='" + views[i].name + "'>" + views[i].name + "</option>");
 				}
 			}
 			
@@ -465,9 +422,7 @@ function generateXMLFromArray(){
 	}
 		
 	xmlString += "</p:app>";
-		
-	console.log(xmlString);
-	
+			
 	$("#xmlPrepare").text(xmlString);
 
 	$(".cm-s-default").remove();
@@ -483,7 +438,6 @@ function generateXMLFromArray(){
 function sendXMLData(){
 		
 	var dataString = "xmlString=" + xmlString + "&projectName=" + project.name;
-		
 	// AJAX Code To Submit xmlString to generate XML document.
 	$.ajax({
 		type: "POST",
@@ -491,6 +445,9 @@ function sendXMLData(){
 		data: dataString,
 		cache: false,
 		success: function(result){
+			var tmpPath = "downloadXML.php?filename=" + result;
+			$("#downloadXML").css("display","block");
+			$("#downloadXML").attr("href", tmpPath);
 			alert(result);
 		}
 	});
