@@ -94,3 +94,7 @@
 #viewAttributeAlert{
 	display:none;
 }
+
+#downloadXML{
+	display: none;
+}

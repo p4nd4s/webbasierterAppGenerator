@@ -1,9 +1,8 @@
 <?php
-
-$file ="asd-1497025659.xml";
+$filename = $_GET['filename'];
 header("Content-Type: text/xml");
-header("Content-Disposition: attachment; filename=asd-1497025659.xml");
-header("Content-Length:" . filesize($file));
-readfile($file);
+header("Content-Disposition: attachment; filename=\"$filename\"");
+header("Content-Length:" . filesize("output/" . $filename));
+readfile("output/" . $filename);
 
 ?>
